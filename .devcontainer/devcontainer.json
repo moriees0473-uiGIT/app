@@ -1,0 +1,17 @@
+{
+  "name": "Java Dev",
+  // すでにある compose.yaml を再利用します
+  "dockerComposeFile": "../compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  
+  // VS Codeがコンテナに入った後に、自動でJavaの拡張機能を入れる設定
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "gabrielbb.vscode-lombok"
+      ]
+    }
+  }
+}

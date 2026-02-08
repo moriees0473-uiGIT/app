@@ -1,0 +1,23 @@
+services:
+  app:
+    # 開発用なので、ビルド済みのイメージではなく、Mavenが入った環境をそのまま使う
+    #image: maven:3.9-amazoncorretto-21
+    image: maven:3.9-eclipse-temurin-21
+    
+    # PCのフォルダ(.)を、コンテナの/appに直結させる
+    volumes:
+      - .:/app
+      # MavenのダウンロードしたライブラリをPC側に保存して、次回以降速くする
+      - maven-repo:/root/.m2
+      
+    # 【修正箇所】ここを小文字の working_dir に変更
+    working_dir: /app
+    
+    # アプリを起動するコマンド
+    command: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    
+    ports:
+      - "8080:8080"
+      
+volumes:
+  maven-repo:
