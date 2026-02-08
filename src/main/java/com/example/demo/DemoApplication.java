@@ -16,6 +16,6 @@ public class DemoApplication {
     // 追加: ブラウザでアクセスした時の処理
     @GetMapping("/")
     public String hello() {
-        return "after noon Docker World! by Mori good!!";
+        return "こんにちわ　java 初心者 Moriees25 です。";
     }
 }
