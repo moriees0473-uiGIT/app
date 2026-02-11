@@ -14,4 +14,12 @@ public class Student {
     private String email;
 
     // 講師用メモ：これだけでDBに「id, name, email」の列を持つテーブルが自動で作られます！
+
+    // 既存のコードの末尾、クラスが閉じる「}」の手前に追記
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }
